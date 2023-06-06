@@ -1,4 +1,4 @@
-const { NavLink } = require("react-router-dom")
+const { NavLink, Outlet } = require("react-router-dom")
 
  const Layout = () => {
     return (
@@ -7,6 +7,7 @@ const { NavLink } = require("react-router-dom")
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/movies" >Movies</NavLink>
             </nav>
+            <Outlet />
         </div>
     )
 }
