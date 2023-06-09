@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 const Home = () => {
     const [trendingMovies, setTrendingMovies] = useState([])
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(null)
 
     useEffect(() => {

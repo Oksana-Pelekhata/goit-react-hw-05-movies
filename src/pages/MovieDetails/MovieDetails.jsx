@@ -6,6 +6,7 @@ import { Div } from './MovieDetails.styled'
 
 const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState({})
+    // eslint-disable-next-line no-unused-vars
     const[error, setError] = useState(null)
     const { movieId } = useParams()
     
