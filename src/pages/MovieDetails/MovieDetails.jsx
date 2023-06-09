@@ -1,6 +1,6 @@
 import getMovieDetails from 'api/getMovieDetails'
 import Container from 'components/Container/Container'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, Suspense } from 'react'
 import { useLocation, useParams, Link, Outlet } from 'react-router-dom'
 import { Div } from './MovieDetails.styled'
 
@@ -19,7 +19,7 @@ const MovieDetails = () => {
     },
       [movieId])
   
-    const { original_title, popularity, overview, genres = [], backdrop_path } = movieInfo
+    const { original_title, vote_average, overview, genres = [], backdrop_path } = movieInfo
     const genresName = genres.map((genre) => genre.name)
 
     return (
@@ -32,7 +32,7 @@ const MovieDetails = () => {
           </div>
           <div>
                 <h1>{original_title}</h1>
-              <p>{`User Score: ${Math.round(popularity/10)} %`} </p>
+              <p>{`User Score: ${Math.round(vote_average*10)} %`} </p>
               <h2>Overview</h2>
                 <p>{overview}</p>
               <h2>Genres</h2>
@@ -46,11 +46,14 @@ const MovieDetails = () => {
                       <Link to='cast'>Cast</Link>
                   </li>
                     <li>
-                      <Link>Review</Link>
+                      <Link to='reviews'>Reviews</Link>
                   </li>
               </ul>
-            </div>
-            <Outlet />
+        </div>
+        <Suspense fallback={<div>LOADING SUBPAGE...</div>}>
+          <Outlet />
+        </Suspense>
+           
         </Container>
   )
 }

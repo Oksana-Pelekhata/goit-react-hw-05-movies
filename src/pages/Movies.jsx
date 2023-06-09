@@ -1,7 +1,7 @@
 import getMovieByTitle from "api/getMovieByTitle"
 import { useEffect, useState } from "react"
 // import { Link } from 'react-router-dom';
-import MoviesList from '../Movieslist/MoviesList'
+import MoviesList from '../components/Movieslist/MoviesList'
 import Container from "components/Container/Container"
 import { useSearchParams } from "react-router-dom"
 

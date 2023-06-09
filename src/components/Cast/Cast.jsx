@@ -15,7 +15,7 @@ const Cast = () => {
         .catch(error => setError(error))
         
     }, [movieId])
-console.log('movieCredits', movieCredits)
+
   return (
       <div>
           <List>
