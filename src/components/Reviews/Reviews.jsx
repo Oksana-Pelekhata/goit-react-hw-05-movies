@@ -1,6 +1,6 @@
 import getMovieReview from 'api/getMovieReview'
 import Container from 'components/Container/Container'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Reviews = () => {

@@ -42,6 +42,7 @@ const Movies = () => {
 
     useEffect(() => {
         getMovies(query)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
