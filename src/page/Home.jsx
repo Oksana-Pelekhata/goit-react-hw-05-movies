@@ -1,4 +1,7 @@
 import getTrendingMovies from "api/getTrendingMovies"
+import Container  from "components/Container/Container.jsx"
+
+import MoviesList from "components/Movieslist/MoviesList"
 import { useEffect, useState } from "react"
 const { Link } = require("react-router-dom")
 
@@ -16,16 +19,17 @@ const Home = () => {
          )
     }, [])
     return (
-        <>
+        <Container>
             <h1>Trending today</h1>
-                <ul>
+            <MoviesList movies={trendingMovies} />
+                {/* <ul>
                     {trendingMovies.map(({ title, id }) =>
                         <li key={id} >
                             <Link to={`/movies/${id}`}>{title} </Link>
                         </li>
                     )}
-                </ul>
-        </>
+                </ul> */}
+        </Container>
     )
 }
 

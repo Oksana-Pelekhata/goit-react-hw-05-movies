@@ -6,10 +6,10 @@ const options = {
     }
 }
 
-const getMovieByTitle = (title) => {
+const getMovieDetails = (id) => {
 
   return fetch(`
-https://api.themoviedb.org/3/search/movie?query=${title}
+https://api.themoviedb.org/3/movie/${id}
 `, options)
   .then(response => {
       if (!response.ok) {
@@ -21,4 +21,4 @@ https://api.themoviedb.org/3/search/movie?query=${title}
 
 }
 
-export default getMovieByTitle
+export default getMovieDetails
