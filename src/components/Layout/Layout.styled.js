@@ -10,8 +10,6 @@ background-color: #f6f6f654;
 export const Nav = styled.nav`
   display: flex;
   padding: 20px 20px;
-//   justify-content: space-between;
- 
 `;
 
 export const StyledNavLink = styled(NavLink)`

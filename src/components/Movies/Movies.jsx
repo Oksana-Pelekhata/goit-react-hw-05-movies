@@ -13,7 +13,7 @@ const Movies = () => {
 
 
     const getMovies = (query) => {
-        if (query === '') {return}
+       
         getMovieByTitle(query)
                 .then(({ results }) => {
                 results.map(result => 
@@ -33,8 +33,11 @@ const Movies = () => {
     const handleSearch = (e) => {
         e.preventDefault()
         setMovies([])
+         if (query === '') {
+            return alert("Please, enter your search request ")
+        }
         getMovies(query)
-        setSearchParams({query: ''})
+        // setSearchParams({query: ''})
     }
 
     useEffect(() => {
