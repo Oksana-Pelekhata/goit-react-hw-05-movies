@@ -17,8 +17,8 @@ const MovieDetails = () => {
             .then((data) => setMovieInfo({ ...data }))
         .catch(error => setError(error))
     },
-        [movieId])
-    console.log(movieInfo)
+      [movieId])
+  
     const { original_title, popularity, overview, genres = [], backdrop_path } = movieInfo
     const genresName = genres.map((genre) => genre.name)
 
