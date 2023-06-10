@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
-
 import { useEffect, useState } from "react"
-// import { Link } from 'react-router-dom';
 import MoviesList from '../components/Movieslist/MoviesList'
 import Container from "components/Container/Container"
 import { useSearchParams } from "react-router-dom"
@@ -9,7 +6,7 @@ import { getMovieByTitle } from "api/api"
 
 const Movies = () => {
     const [movies, setMovies] = useState([])
-    const [error, setError] = useState(null)
+    const [, setError] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const query = searchParams.get('query') ?? '';
 

@@ -7,8 +7,7 @@ import { getMovieDetails } from 'api/api'
 
 const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState({})
-    // eslint-disable-next-line no-unused-vars
-    const[error, setError] = useState(null)
+    const[, setError] = useState(null)
     const { movieId } = useParams()
     
     const location = useLocation();

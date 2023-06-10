@@ -6,8 +6,7 @@ import { useParams } from 'react-router-dom'
 
 const Reviews = () => {
 const [movieReview, setMovieReview] = useState([])
-    // eslint-disable-next-line no-unused-vars
-    const [error, setError] = useState(null)
+    const [, setError] = useState(null)
     const { movieId } = useParams()
 
     useEffect(() => {
