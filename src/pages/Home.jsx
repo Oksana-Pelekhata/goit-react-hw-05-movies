@@ -5,7 +5,7 @@ import MoviesList from "components/Movieslist/MoviesList"
 import { useEffect, useState } from "react"
 
 const Home = () => {
-    const [trendingMovies, setTrendingMovies] = useState(null)
+    const [trendingMovies, setTrendingMovies] = useState([])
     const [, setError] = useState(null)
 
     useEffect(() => {

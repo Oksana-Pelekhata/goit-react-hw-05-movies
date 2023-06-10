@@ -6,7 +6,7 @@ import { getMovieByTitle } from "api/api"
 import SearchForm from "components/SearchForm/SearchForm"
 
 const Movies = () => {
-    const [movies, setMovies] = useState(null)
+    const [movies, setMovies] = useState([])
     const [, setError] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const searchRequest = searchParams.get('search') ?? '';

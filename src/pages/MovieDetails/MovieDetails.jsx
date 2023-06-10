@@ -33,7 +33,7 @@ const MovieDetails = () => {
             <Link to={backLinkLocationRef.current}>Go Back</Link>
             <Div>
           <div>
-                <img src={imageUrl}  alt={original_title} />
+                <img src={imageUrl} width='250px' alt={original_title} />
           </div>
           <div>
                 <h1>{original_title}</h1>

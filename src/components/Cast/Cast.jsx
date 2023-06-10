@@ -6,10 +6,9 @@ import { getMovieCredits } from 'api/api'
 import notFound from '../../images/not_found.jpeg'
 
 const Cast = () => {
-    const [movieCredits, setMovieCredits] = useState(null)
+    const [movieCredits, setMovieCredits] = useState([])
     const [, setError] = useState(null)
     const { movieId } = useParams()
-    console.log('movieId', movieId)
 
     useEffect(() => {
         getMovieCredits(movieId)
@@ -22,13 +21,13 @@ const Cast = () => {
       <div>
           <List>
               {
-                  movieCredits &&
+                  movieCredits.length >0 &&
                   movieCredits.map((el) => {
                       const imageUrl = el.profile_path
             ? `https://image.tmdb.org/t/p/w500/${el.profile_path}`
             : notFound;
                       return <li key={el.credit_id}>
-                          <img src={imageUrl} width='200px' alt={el.original_name} />
+                          <img src={imageUrl} width='100px' alt={el.original_name} />
                           <p>{ el.original_name}</p>
                             <p>{el.character}</p>
                       </li>}

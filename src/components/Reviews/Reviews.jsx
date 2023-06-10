@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Reviews = () => {
-const [movieReview, setMovieReview] = useState(null)
+const [movieReview, setMovieReview] = useState([])
     const [, setError] = useState(null)
     const { movieId } = useParams()
 
@@ -16,8 +16,6 @@ const [movieReview, setMovieReview] = useState(null)
         
     }, [movieId])
   
-console.log('movieReview', movieReview)
-
   return (
     <Container>
       {movieReview.length === 0 ? (
