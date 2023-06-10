@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, Suspense } from 'react'
 import { useLocation, useParams, Link, Outlet } from 'react-router-dom'
 import { Div } from './MovieDetails.styled'
 import { getMovieDetails } from 'api/api'
+import notFound from '../../images/not_found.jpeg'
 
 const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState({})
@@ -20,8 +21,11 @@ const MovieDetails = () => {
     },
       [movieId])
   
-    const { original_title, vote_average, overview, genres = [], backdrop_path } = movieInfo
-    const genresName = genres.map((genre) => genre.name)
+    const { original_title, vote_average, overview, genres = [], poster_path } = movieInfo
+  const genresName = genres.map((genre) => genre.name)
+  const imageUrl = poster_path
+            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+            : notFound;
 
     return (
 
@@ -29,7 +33,7 @@ const MovieDetails = () => {
             <Link to={backLinkLocationRef.current}>Go Back</Link>
             <Div>
           <div>
-                <img src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}  alt={original_title} />
+                <img src={imageUrl}  alt={original_title} />
           </div>
           <div>
                 <h1>{original_title}</h1>

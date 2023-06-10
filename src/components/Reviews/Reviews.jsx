@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Reviews = () => {
-const [movieReview, setMovieReview] = useState([])
+const [movieReview, setMovieReview] = useState(null)
     const [, setError] = useState(null)
     const { movieId } = useParams()
 

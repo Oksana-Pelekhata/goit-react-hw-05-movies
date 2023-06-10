@@ -3,17 +3,27 @@ import MoviesList from '../components/Movieslist/MoviesList'
 import Container from "components/Container/Container"
 import { useSearchParams } from "react-router-dom"
 import { getMovieByTitle } from "api/api"
+import SearchForm from "components/SearchForm/SearchForm"
 
 const Movies = () => {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState(null)
     const [, setError] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    const query = searchParams.get('query') ?? '';
+    const searchRequest = searchParams.get('search') ?? '';
 
 
-    const getMovies = (query) => {
-       
-        getMovieByTitle(query)
+    const handleSearch = (e) => {
+        e.preventDefault()
+        const query = e.target.elements.search.value
+          if (query === '') {
+            return alert("Please, enter your search request ")
+        }
+        setSearchParams({ search: query })
+        setMovies([])
+    }
+
+    useEffect(() => {
+        getMovieByTitle(searchRequest)
                 .then(({ results }) => {
                 results.map(result => 
                     setMovies((movies) => [...movies, {
@@ -23,36 +33,11 @@ const Movies = () => {
                 )
             })
         .catch(error => setError(error))
-    }
-
-    const handleChange = ({ target: {value}}) => {
-        setSearchParams({query: value})
-    }
-
-    const handleSearch = (e) => {
-        e.preventDefault()
-        setMovies([])
-         if (query === '') {
-            return alert("Please, enter your search request ")
-        }
-        getMovies(query)
-        // setSearchParams({query: ''})
-    }
-
-    useEffect(() => {
-        getMovies(query)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [searchRequest])
 
 
     return ( <Container>
-        <form onSubmit={handleSearch}>
-            <input type="text" name="search"
-                onChange={handleChange}
-                value={query}
-            />
-            <button type="submit">Search</button>
-        </form>
+        <SearchForm handleSearch={handleSearch} searchRequest={searchRequest} />
         <MoviesList movies={movies} />
         </Container>
 )
