@@ -1,8 +1,9 @@
-import getMovieDetails from 'api/getMovieDetails'
+
 import Container from 'components/Container/Container'
 import React, { useEffect, useRef, useState, Suspense } from 'react'
 import { useLocation, useParams, Link, Outlet } from 'react-router-dom'
 import { Div } from './MovieDetails.styled'
+import { getMovieDetails } from 'api/api'
 
 const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState({})

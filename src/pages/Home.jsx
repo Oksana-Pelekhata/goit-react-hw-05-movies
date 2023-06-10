@@ -1,4 +1,5 @@
-import getTrendingMovies from "api/getTrendingMovies"
+
+import { getTrendingMovies } from "api/api"
 import Container  from "components/Container/Container.jsx"
 import MoviesList from "components/Movieslist/MoviesList"
 import { useEffect, useState } from "react"

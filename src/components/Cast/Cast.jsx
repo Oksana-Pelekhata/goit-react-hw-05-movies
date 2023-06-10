@@ -1,7 +1,8 @@
-import getMovieCredits from 'api/getMovieCredits'
+
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { List } from './Cast.styled'
+import { getMovieCredits } from 'api/api'
 
 const Cast = () => {
     const [movieCredits, setMovieCredits] = useState([])

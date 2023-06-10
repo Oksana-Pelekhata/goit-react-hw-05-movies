@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
-import getMovieByTitle from "api/getMovieByTitle"
+
 import { useEffect, useState } from "react"
 // import { Link } from 'react-router-dom';
 import MoviesList from '../components/Movieslist/MoviesList'
 import Container from "components/Container/Container"
 import { useSearchParams } from "react-router-dom"
+import { getMovieByTitle } from "api/api"
 
 const Movies = () => {
     const [movies, setMovies] = useState([])
