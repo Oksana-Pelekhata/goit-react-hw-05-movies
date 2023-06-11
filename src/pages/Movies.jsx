@@ -18,19 +18,6 @@ const Movies = () => {
         setMovies([])
     }
 
-    // useEffect(() => {
-    //     getMovieByTitle(searchRequest)
-    //             .then(({ results }) => {
-    //             results.map(result => 
-    //                 setMovies((movies) => [...movies, {
-    //                     title: result.title || result.name,
-    //                     id: result.id
-    //                }])
-    //             )
-    //         })
-    //     .catch(error => setError(error))
-    // }, [searchRequest])
-
      useEffect(() => {
         getMovieByTitle(searchRequest)
         .then(({ results }) => {

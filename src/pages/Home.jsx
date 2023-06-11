@@ -8,13 +8,12 @@ const Home = () => {
     const [trendingMovies, setTrendingMovies] = useState([])
     const [, setError] = useState(null)
 
-    useEffect(() => {
+        useEffect(() => {
         getTrendingMovies()
             .then(({ results }) =>
-                results.map(result =>
-                    setTrendingMovies(prev =>
-                    [...prev, { title: result.title || result.name, id: result.id }])
-                     )
+               {const modifiedResults = results.map(result => ({title: result.title || result.name, id: result.id }))
+                 setTrendingMovies(modifiedResults)
+                     }
          ).catch(error => setError(error))
     }, [])
     return (
