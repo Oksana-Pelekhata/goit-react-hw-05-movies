@@ -7,7 +7,7 @@ import { getMovieDetails } from 'api/api'
 import notFound from '../../images/not_found.jpeg'
 
 const MovieDetails = () => {
-    const [movieInfo, setMovieInfo] = useState({})
+    const [movieInfo, setMovieInfo] = useState(null)
     const[, setError] = useState(null)
     const { movieId } = useParams()
     
@@ -20,7 +20,7 @@ const MovieDetails = () => {
         .catch(error => setError(error))
     },
       [movieId])
-  
+  if (!movieInfo) { return }
     const { original_title, vote_average, overview, genres = [], poster_path } = movieInfo
   const genresName = genres.map((genre) => genre.name)
   const imageUrl = poster_path

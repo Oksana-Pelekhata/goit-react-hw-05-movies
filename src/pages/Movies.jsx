@@ -12,33 +12,41 @@ const Movies = () => {
     const searchRequest = searchParams.get('search') ?? '';
 
 
-    const handleSearch = (e) => {
-        e.preventDefault()
-        const query = e.target.elements.search.value
-          if (query === '') {
-            return alert("Please, enter your search request ")
-        }
+    const handleSearch = (query) => {
+       
         setSearchParams({ search: query })
         setMovies([])
     }
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     getMovieByTitle(searchRequest)
+    //             .then(({ results }) => {
+    //             results.map(result => 
+    //                 setMovies((movies) => [...movies, {
+    //                     title: result.title || result.name,
+    //                     id: result.id
+    //                }])
+    //             )
+    //         })
+    //     .catch(error => setError(error))
+    // }, [searchRequest])
+
+     useEffect(() => {
         getMovieByTitle(searchRequest)
-                .then(({ results }) => {
-                results.map(result => 
-                    setMovies((movies) => [...movies, {
-                        title: result.title || result.name,
-                        id: result.id
-                   }])
+        .then(({ results }) => {
+            return results.map(result => 
+                ({title: result.title || result.name,
+                    id: result.id
+                   })
                 )
-            })
+                })
+            .then(results => setMovies(results))
         .catch(error => setError(error))
     }, [searchRequest])
 
-
     return ( <Container>
         <SearchForm handleSearch={handleSearch} searchRequest={searchRequest} />
-        <MoviesList movies={movies} />
+        {movies.length > 0 && <MoviesList movies={movies} />}
         </Container>
 )
 }

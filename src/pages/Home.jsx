@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <Container>
             <h1>Trending today</h1>
-            <MoviesList movies={trendingMovies} />
+            { trendingMovies.length > 0 && <MoviesList movies={trendingMovies} />}
         </Container>
     )
 }
